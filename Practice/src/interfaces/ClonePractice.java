@@ -63,15 +63,23 @@ public class ClonePractice {
         pcArray[2] = new Computer(2018, 32000000, 3400, "Alienware");
        
         System.out.println("Before Sort: ");
-        for(int i=0; i< intArray.length; i++){
+    for(int i=0; i< intArray.length; i++){
         System.out.println("After sort: " + intArray[i]);
-        System.out.println(pcArray[i]);
+        System.out.println(pcArray[i].hrtz);
+        System.out.println(pcArray[i].kbRam);
+        System.out.println(pcArray[i].manufactuerer);
+        System.out.println(pcArray[i].year);
         }
+    
         Arrays.sort(pcArray);
         System.out.println("After sort");
-        for(int i=0; i< intArray.length; i++){
-        System.out.println(intArray[i]);
-        }
+        
+    for(int i=0; i< intArray.length; i++){
+        System.out.println(pcArray[i].hrtz);
+        System.out.println(pcArray[i].kbRam);
+        System.out.println(pcArray[i].manufactuerer);
+        System.out.println(pcArray[i].year);
+    }
    }
     
 }
