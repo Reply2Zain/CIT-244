@@ -15,19 +15,27 @@ import java.util.Scanner;
 public class PasswordSystem {
     private int x = 0;
     private String Input;
-    private int Userbase; //how big you would want the array
+    private int Userbase = 10; //how big you would want the array
    
     //creates the "user base size"
    String[] passwords = new String[Userbase];
   
-   
+   /**
+    * 
+    * @return 
+    */
+public String getWelcomeText(){
+       System.out.println("Welcome to the Password System");
+    return null;
+}
+
 public String askPassword(){
     Scanner sc = new Scanner(System.in);
     Input = sc.next();
     passwords[x] = Input;
-    System.out.println(passwords[x]);
+    System.out.println("Your password: " + passwords[x]);
     x++;
-    return "Your password has been generated";
+    return null;
 }
 
 public int getPassLength(){
@@ -36,7 +44,9 @@ public int getPassLength(){
 }
     
     public static void main(String[] args) {
-        System.out.println(askPassword());
+        PasswordSystem ap = new PasswordSystem();
+        ap.getWelcomeText();
+        ap.askPassword();
     }
     
 }
