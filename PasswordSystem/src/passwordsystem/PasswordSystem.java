@@ -7,7 +7,6 @@ package passwordsystem;
 
 import java.util.Scanner;
 
-
 /**
  *
  * @author reply
@@ -66,9 +65,10 @@ public int getPassLength(){
     
     public static void main(String[] args) {
         PasswordSystem ps = new PasswordSystem();
+        
         ps.getWelcomeText();
-        ps.setUserBase(5);
-        ps.askPassword();
+        ps.setUserBase(15);
+        
     }
     
 }
