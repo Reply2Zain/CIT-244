@@ -5,6 +5,7 @@
  */
 package passwordsystem;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,9 +15,9 @@ import java.util.Scanner;
 public class PasswordSystem {
     private int x = 0;
     private String Input;
-    private int Userbase = 0; //how big you would want the array
-   String password;
-  
+    private int userbase = 0; //how big you would want the array
+    private String password;
+    Scanner sc = new Scanner(System.in);
    /**
     * Welcomes the user with an introductory phrase letting
     * the user know what the program is and what it is called
@@ -28,7 +29,7 @@ public String getWelcomeText(){
     return null;
 }
 //creates the "user base size"
-   String[] passwords = new String[Userbase];
+   ArrayList<String> passwords = new ArrayList<>();
 
    /**
     * This sets the size of the array which holds
@@ -36,10 +37,10 @@ public String getWelcomeText(){
     * @param x
     * @return Userbase
     */
-public int setUserBase(int x){
-    Userbase = x;
-    System.out.println("Userbase is " + Userbase);
-    return Userbase;
+public int setUserBase(int x){    
+    userbase = this.x = x;
+    System.out.println("Userbase is " + userbase);
+    return userbase;
 }
 
 /**
@@ -48,11 +49,22 @@ public int setUserBase(int x){
  * array slot
  * @return null
  */
+/*
 public String askPassword(){
-    Scanner sc = new Scanner(System.in);
+    
+    
     Input = sc.next();
-    passwords[x] = Input;
-    System.out.println("Your password: " + passwords[x]);
+    passwords[]x = Input;
+    System.out.println("Your password: " + passwords[0]);
+    x++;
+    return null;
+}
+*/
+    
+public String askPasswordNew(){
+    Input = sc.next();
+    passwords.add(0, Input);
+    System.out.println("Your password: " + passwords.get(0));
     x++;
     return null;
 }
@@ -77,8 +89,8 @@ public String checkPassword(){
         PasswordSystem ps = new PasswordSystem();
         
         ps.getWelcomeText();
-        ps.askPassword();
-        ps.setUserBase(15);
+        ps.setUserBase(5);
+        ps.askPasswordNew();
         
     }
     
