@@ -7,7 +7,9 @@ package interfaces;
 
 import java.util.Arrays;
 
-class Computer{
+
+class Computer implements Comparable <Computer>{
+    
     int year;
     int kbRam;
     int hrtz;
@@ -26,12 +28,15 @@ class Computer{
      * @param m Manufacturer
      */
     Computer(int year, int kb, int hz, String m){
+        
         this.year = year;
         kbRam = kb;
         hrtz = hz;
         manufactuerer = m;
         
     }
+@Ovveride
+public int CompareTo();
 }
 /**
  *
