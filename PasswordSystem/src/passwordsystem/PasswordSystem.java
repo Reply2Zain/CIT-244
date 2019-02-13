@@ -15,7 +15,7 @@ public class PasswordSystem {
     private int x = 0;
     private String Input;
     private int Userbase = 0; //how big you would want the array
-   
+   String password;
   
    /**
     * Welcomes the user with an introductory phrase letting
@@ -62,11 +62,22 @@ public int getPassLength(){
     
         return 0;
 }
+
+public String checkPassword(){
+    char charVal;
+    char[] charArray = new char[password.length()];
+    for(int i = 0; i < password.length(); i++){
+        charVal = password.charAt(i);
+        charArray[i]=charVal;
+    }
+        return password;
+}
     
     public static void main(String[] args) {
         PasswordSystem ps = new PasswordSystem();
         
         ps.getWelcomeText();
+        ps.askPassword();
         ps.setUserBase(15);
         
     }
