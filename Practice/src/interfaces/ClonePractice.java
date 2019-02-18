@@ -35,9 +35,12 @@ class Computer implements Comparable <Computer>{
         manufactuerer = m;
         
     }
-@Ovveride
-public int CompareTo();
+    @Override
+public int compareTo(Computer o){
+    return Integer.compare(this.hrtz, this.year);
 }
+
+} //close class Computer
 /**
  *
  * @author zain.aaban
@@ -53,14 +56,14 @@ public class ClonePractice {
             intArray[4] = 90;
             
             System.out.println("Before sort");
-            for(int i=0; i< intArray.length; i++){
+            for(int i=0; i< (intArray.length -2); i++){
                 System.out.println(intArray[i]);
             }
             
         Arrays.sort(intArray);
         System.out.println("");
         System.out.println("After sort:");
-        for(int i=0; i< intArray.length; i++){
+        for(int i=0; i< (intArray.length-2); i++){
         System.out.println(intArray[i]);
         
             }
@@ -72,7 +75,7 @@ public class ClonePractice {
         System.out.println("");
         System.out.println("Before Sort: ");
     
-        for(int i=0; i< intArray.length; i++){
+        for(int i=0; i< (intArray.length-2); i++){
         System.out.println(pcArray[i].hrtz);
         System.out.println(pcArray[i].kbRam);
         System.out.println(pcArray[i].manufactuerer);
@@ -82,7 +85,7 @@ public class ClonePractice {
         Arrays.sort(pcArray);
         System.out.println("After sort");
         
-    for(int i=0; i< intArray.length; i++){
+    for(int i=0; i< (intArray.length-2); i++){
         System.out.println(pcArray[i].hrtz);
         System.out.println(pcArray[i].kbRam);
         System.out.println(pcArray[i].manufactuerer);
