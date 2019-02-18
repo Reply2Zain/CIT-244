@@ -37,7 +37,7 @@ class Computer implements Comparable <Computer>{
     }
     @Override
 public int compareTo(Computer o){
-    return Integer.compare(this.hrtz, this.year);
+    return Integer.compare(this.kbRam, this.hrtz);
 }
 
 } //close class Computer
@@ -91,7 +91,9 @@ public class ClonePractice {
         System.out.println(pcArray[i].manufactuerer);
         System.out.println(pcArray[i].year);
     }
-   }
+    
+    
+    } // close psvm
     
 }
 
