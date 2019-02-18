@@ -33,12 +33,63 @@ class Computer implements Comparable <Computer>{
         kbRam = kb;
         hrtz = hz;
         manufactuerer = m;
-        
     }
+
     @Override
 public int compareTo(Computer o){
-    return Integer.compare(this.kbRam, this.hrtz);
+   if (o == null){
+   throw new NullPointerException();
+       
+   }
+
+    int x = 0;
+    if (this.kbRam > o.kbRam){
+    x=1;
 }
+    else if(this.kbRam < o.kbRam){
+    x=-1;
+            }
+        return x;
+
+
+}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.year;
+        hash = 67 * hash + this.kbRam;
+        hash = 67 * hash + this.hrtz;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Computer other = (Computer) obj;
+        if (this.year != other.year) {
+            return false;
+        }
+        if (this.kbRam != other.kbRam) {
+            return false;
+        }
+        if (this.hrtz != other.hrtz) {
+            return false;
+        }
+        return true;
+    }
+
+
+
+
 
 } //close class Computer
 /**
@@ -47,6 +98,8 @@ public int compareTo(Computer o){
  */
 public class ClonePractice {
     public static void main(String[] args) {
+        
+        /*
         Integer [] intArray = new Integer[5];
         
             intArray[0] = 8;
@@ -55,27 +108,28 @@ public class ClonePractice {
             intArray[3] = -1;
             intArray[4] = 90;
             
+        // Just print out each array
             System.out.println("Before sort");
-            for(int i=0; i< (intArray.length -2); i++){
+            for(int i=0; i< (intArray.length); i++){
                 System.out.println(intArray[i]);
             }
-            
+        
+        // uses the .sort to sort the array     
         Arrays.sort(intArray);
         System.out.println("");
         System.out.println("After sort:");
-        for(int i=0; i< (intArray.length-2); i++){
+        for(int i=0; i< (intArray.length); i++){
         System.out.println(intArray[i]);
+        }
+       */
         
-            }
-        Computer[] pcArray = new Computer [3];
-        pcArray[0] = new Computer(1975, 2, 2, "IMASI");
-        pcArray[1] = new Computer(2008, 8000000, 3400, "Dell");
-        pcArray[2] = new Computer(2018, 32000000, 3400, "Alienware");
-       
+     
+        
+        /*  gets rid of .sort
         System.out.println("");
         System.out.println("Before Sort: ");
     
-        for(int i=0; i< (intArray.length-2); i++){
+        for(int i=0; i< (pcArray.length); i++){
         System.out.println(pcArray[i].hrtz);
         System.out.println(pcArray[i].kbRam);
         System.out.println(pcArray[i].manufactuerer);
@@ -85,13 +139,47 @@ public class ClonePractice {
         Arrays.sort(pcArray);
         System.out.println("After sort");
         
-    for(int i=0; i< (intArray.length-2); i++){
+    for(int i=0; i< (pcArray.length); i++){
         System.out.println(pcArray[i].hrtz);
         System.out.println(pcArray[i].kbRam);
         System.out.println(pcArray[i].manufactuerer);
         System.out.println(pcArray[i].year);
     }
+   */
+        
+        
+   Computer cc = new Computer();
+   cc.hrtz = 3;
+   cc.kbRam = 100;
+   cc.manufactuerer = "dell";
+   cc.year = 2000;
+   
+   Computer apple = new Computer();
+   apple.hrtz = 35;
+   apple.kbRam = 10;
+   apple.manufactuerer = "apple";
+   apple.year = 2005;
+   
+      Computer[] pcArray = new Computer [3];
+        pcArray[0] = new Computer(1975, 2, 2, "IMASI");
+        pcArray[1] = new Computer(2008, 8000000, 3400, "Dell");
+        pcArray[2] = new Computer(2018, 32000000, 3400, "Alienware");
+   
+        System.out.println("");
     
+    int fc = 2; //first array comparison
+    int sc = 1; // second array comparison
+        
+        
+        System.out.println("First brand: " + pcArray[fc].manufactuerer);
+        System.out.println("Second brand: " + pcArray[sc].manufactuerer);
+        
+        System.out.println("compare to val: " + pcArray[fc].compareTo(pcArray[sc]));
+        System.out.println(cc.equals(cc));
+        
+        System.out.println("");
+        Arrays.sort(pcArray);
+        
     
     } // close psvm
     
