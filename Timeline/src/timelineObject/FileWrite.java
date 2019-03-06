@@ -5,15 +5,34 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.PrintWriter;
 
 /**
  *
  * @author zain.aaban
  */
 public class FileWrite {
-    Scanner sc = new Scanner(System.in);
     
     
+    
+    public void makeFile(){
+    
+    java.io.File file = new java.io.File("input.txt");
+        try{
+        java.io.PrintWriter output = new java.io.PrintWriter(file);
+        output.print("Test");
+        output.close();
+            System.out.println("ran");        
+        }
+        catch (IOException o){
+            System.out.println("There was an IOException");
+        }
+        
+        
+    }
+    
+    
+    /*
     FileWrite(){
        
         FileWriter fw;
@@ -24,12 +43,19 @@ public class FileWrite {
            System.out.println("Error IO Exception");
        }
     }
-    
-    Object writeObjectToFile(TimelineObject){
-        FileWrite ff = new FileWrite();
+    */
+    //Object writeObjectToFile(TimelineObject){
         
-    }
+        
+    //}
     
+        public static void main(String[] args) throws IOException {
+        FileWrite filewrite = new FileWrite();
+        //Scanner sc1;
+        //sc1 = filewrite.sc;
+        filewrite.makeFile();
+      
+    }
     
     /*
     Object inputFileString(){

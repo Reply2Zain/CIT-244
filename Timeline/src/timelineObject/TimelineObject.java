@@ -2,9 +2,6 @@
 
 package timelineObject;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 
 /**
@@ -37,6 +34,8 @@ public class TimelineObject {
     String getAuthor(){
         return user;
     } 
+    
+   
     
     
     
