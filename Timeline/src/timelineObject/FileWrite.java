@@ -16,18 +16,23 @@ public class FileWrite {
     
     
     public void makeFile(){
-    
-    java.io.File file = new java.io.File("input.txt");
+        
+        java.io.File file = new java.io.File("input.txt");
+        if (file.exists() == false){
         try{
         java.io.PrintWriter output = new java.io.PrintWriter(file);
-        output.print("Test");
+        //output.print("Test2");
         output.close();
-            System.out.println("ran");        
-        }
+        System.out.println("ran");        
+        } // close try
+        
         catch (IOException o){
             System.out.println("There was an IOException");
-        }
+        } // close catch
+        } // close if
         
+        else 
+            System.out.println("File already exists");
         
     }
     
