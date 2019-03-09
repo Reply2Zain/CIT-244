@@ -2,6 +2,8 @@
 
 package timelineObject;
 
+import java.io.IOException;
+
 
 
 /**
@@ -19,8 +21,8 @@ public class TimelineObject {
     //java.io.File file = new java.io.File(input);
  
     
-    int getReleaseYear(){
-    return releaseYear;
+    int getReleaseYear(int releaseYear){
+      return releaseYear;
 }
     
     String getName(){
@@ -34,6 +36,10 @@ public class TimelineObject {
     String getAuthor(){
         return user;
     } 
+    
+   
+    
+     
     
    
     

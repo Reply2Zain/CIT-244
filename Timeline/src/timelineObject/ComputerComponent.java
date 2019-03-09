@@ -2,6 +2,7 @@
 package timelineObject;
 
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -14,6 +15,6 @@ public class ComputerComponent extends TimelineObject{
     int ram;
     
    
-    
+  
     
 }
