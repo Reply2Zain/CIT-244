@@ -1,51 +1,140 @@
 
 package timelineObject;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 /**
  *
  * @author zain.aaban
  */
 public class FileWrite {
+    FileWriter fWriter;
+    String fileName = "input.txt"; //Name of the file
     
-    ComputerComponent cc = new ComputerComponent();
-    FileWriter pWriter;
-   
-    
+    /**
+     * Can write to a file without having a parameters set, needs all of the
+     * variables to be initialized within the method before running
+     * @throws IOException 
+     */
     public void writeFile() throws IOException{
-        java.io.File file = new java.io.File("input.txt");        
-        
-        pWriter = new FileWriter("input.txt",true); // true keeps existing files
-/*        pWriter.write(cc.name);
-        pWriter.write(cc.description);
-        pWriter.write(cc.ram);
-        pWriter.write(cc.releaseYear);
-        pWriter.write((int) cc.megahertzCPUSpeed);
-*/        
-        pWriter.close();
+        java.io.File file = new java.io.File(fileName); 
+        ComputerComponent cc = new ComputerComponent();
+        try{
+        fWriter.write(cc.releaseYear);
+        fWriter = new FileWriter(fileName,true); // true keeps existing files
+        fWriter.write(cc.brand);
+        fWriter.write(cc.ram);
+        fWriter.write((int) cc.megahertzCPUSpeed);
+        fWriter.write(cc.description);
+        }
+        catch(NullPointerException np){
+            System.out.println("Error: Not all of the variables were "
+                    + "initalized under the writeFile method");
+        }
+        fWriter.close();
     }
-    
-    
-         public static void main(String[] args) throws IOException {
-        FileWrite fw = new FileWrite();
-        fw.writeFile();
-        TimelineObject to = new TimelineObject();
+    /**
+     * Takes in ComputerComponent cc and writes it to the text file
+     * @param  cc
+     * @throws IOException 
+     */
+     public void writeFile(ComputerComponent cc) throws IOException{
+        java.io.File file = new java.io.File(fileName);
         
-             System.out.println(to.getReleaseYear(1998));
+        fWriter = new FileWriter(fileName,true); // true keeps existing files
+        String releaseYearString = Integer.toString(cc.releaseYear);
+        String ramString = Integer.toString(cc.ram);
+        String megahertzCPUSpeedString = Double.toString(cc.megahertzCPUSpeed);
+        fWriter.write(releaseYearString);
+        fWriter.write(cc.brand);
+        fWriter.write(cc.description);
+        fWriter.write(ramString);
+        fWriter.write(megahertzCPUSpeedString);
+        fWriter.append(System.lineSeparator());
+        fWriter.close();
+     }
+    
+    public void readFile(String fileName) {
+       try {
+         File file = new File(fileName);
+           try (Scanner scanner = new Scanner(file)) {
+               while (scanner.hasNextLine()) {
+                   System.out.println(scanner.nextLine());
+               } 
+           }
+       } 
+       
+       
+       catch (FileNotFoundException e) {
+           System.out.println("Error: File not found");
+       }
+     }
+    
+    public void readFile() {
+       try {
+         File file = new File(fileName);
+           try (Scanner scanner = new Scanner(file)) {
+               while (scanner.hasNextLine()) {
+                   System.out.println(scanner.nextLine());
+               } 
+           }
+       } 
+       
+       
+       catch (FileNotFoundException e) {
+           System.out.println("Error: File not found");
+       }
+     }
+    
+    public static void main(String[] args) throws IOException {
+        FileWrite fw = new FileWrite();
+        ComputerComponent bb = new ComputerComponent();
+        bb.getComputerComponent(1999, "Lenovo", 5, 4, "Laptop from 1999.");
+        fw.writeFile(bb);
+        fw.readFile();
+        
+    
+        
                 
     }
          
    
     
         
+         
+         
+} // close class     
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         
         // -------------- OLD CODE -------------------
         
@@ -54,8 +143,8 @@ public class FileWrite {
         java.io.File file = new java.io.File("input.txt");        
         if (file.exists() == false){
             try{
-                pWriter = new FileWriter("input.txt",true);
-                pWriter.write("Zain's file:");
+                fWriter = new FileWriter("input.txt",true);
+                fWriter.write("Zain's file:");
                 
                 System.out.println("File has been created");        
             } // close try
@@ -67,7 +156,7 @@ public class FileWrite {
         
         else{ 
             System.out.println("File exists");
-            pWriter.write("Test else");
+            fWriter.write("Test else");
         }
     */
         
@@ -102,4 +191,4 @@ public class FileWrite {
         return null;
     }
     */
-}
+

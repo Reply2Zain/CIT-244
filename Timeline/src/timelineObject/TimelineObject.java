@@ -12,7 +12,7 @@ import java.io.IOException;
  */
 public class TimelineObject {
     int releaseYear;
-    String name;
+    String brand;
     String description;
     String user;
     
@@ -25,16 +25,28 @@ public class TimelineObject {
       return releaseYear;
 }
     
-    String getName(){
-        return name;
+    String getBrand(){
+        return brand;
+    }
+    String getBrand(String brand){
+        this.brand = brand;
+        return this.brand;
     }
     
     String getDescription(){
       return description;  
     }
+    String getDescription(String description){
+        this.description = description;
+        return this.description;  
+    }
 
     String getAuthor(){
         return user;
+    } 
+    String getAuthor(String user){
+        this.user = user;
+        return this.user;
     } 
     
    
