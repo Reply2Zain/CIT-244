@@ -5,6 +5,8 @@
  */
 package timelineObject;
 
+import java.util.Scanner;
+
 /**
  *
  * @author zain.aaban
@@ -20,6 +22,13 @@ public class Input {
         System.out.println("Welcome to the Timeline");
     }
     
+    void askForMoreEntry(){
+        Scanner sc = new Scanner (System.in);
+        System.out.print("Would you like to enter more ('yes' or 'no') -->");
+        String response;
+        response = sc.next();
+    
+        }
     /**
      * Creates a ComputerComponent object and asks for each field.
      * @return ComputerComponent object
