@@ -21,6 +21,7 @@ public class FileWrite {
     FileWriter fWriter;
     String fileName = "input.txt"; //Name of the file
     
+    
     /**
      * Can write to a file without having a parameters set, needs all of the
      * variables to be initialized within the method before running
@@ -44,26 +45,56 @@ public class FileWrite {
         fWriter.close();
     }
     /**
-     * Takes in ComputerComponent cc and writes it to the text file
+     * Takes in ComputerComponent cc and writes it to the text file. Does not 
+     * need all of the variables to be entered to work since they are all pre-initialized.
      * @param  cc
      * @throws IOException 
      */
      public void writeFile(ComputerComponent cc) throws IOException{
         java.io.File file = new java.io.File(fileName);
         
+        
         fWriter = new FileWriter(fileName,true); // true keeps existing files
-        String releaseYearString = Integer.toString(cc.releaseYear);
-        String ramString = Integer.toString(cc.ram);
+        
+        
+        
+        if (cc.releaseYear != -1){
+            String releaseYearString = Integer.toString(cc.releaseYear);
+            fWriter.write("Year:" + releaseYearString + ". ");
+        }
+        
+        else
+            fWriter.write("Year: N/A. ");
+        
+        fWriter.write("Brand:" + cc.brand + ". ");
+        
+        if (cc.ram != -1){
+            String ramString = Integer.toString(cc.ram);
+            fWriter.write("Ram:" + ramString + "Kb. ");
+        }
+        else
+            fWriter.write("Ram: N/A. ");
         String megahertzCPUSpeedString = Double.toString(cc.megahertzCPUSpeed);
-        fWriter.write(releaseYearString);
-        fWriter.write(cc.brand);
-        fWriter.write(cc.description);
-        fWriter.write(ramString);
-        fWriter.write(megahertzCPUSpeedString);
+        if (cc.megahertzCPUSpeed != -1){
+            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MgHz. ");
+            
+        }
+        else
+            fWriter.write("CPU-Speed: N/A. ");
+        
+        
+        fWriter.write("Description:" + cc.description + "");
+        fWriter.write("Entered by: " + cc.user);
         fWriter.append(System.lineSeparator());
         fWriter.close();
      }
     
+     /**
+      * Reads the file and returns the contents of the text file in the console output.
+      * For use when there is a specified file name that is different from the
+      * "String fileName" that is initialized at the beginning of the FileWrite class.
+      * @param fileName 
+      */
     public void readFile(String fileName) {
        try {
          File file = new File(fileName);
@@ -80,6 +111,10 @@ public class FileWrite {
        }
      }
     
+    /**
+     * Reads the file and returns the contents of the text file in the console output.
+     * Uses the file name that is initialized at the beginning of the FileWrite class. 
+     */
     public void readFile() {
        try {
          File file = new File(fileName);
@@ -95,16 +130,31 @@ public class FileWrite {
            System.out.println("Error: File not found");
        }
      }
+    /**
+     * Deletes the old file and creates a new one with the same name.
+     * @throws IOException 
+     */
+    void clearFile() throws IOException{
+        java.io.File file = new java.io.File(fileName);
+        fWriter = new FileWriter(fileName,false); // true keeps existing files
+
+    }
     
     public static void main(String[] args) throws IOException {
         FileWrite fw = new FileWrite();
         ComputerComponent bb = new ComputerComponent();
+        fw.clearFile();
         bb.getComputerComponent(1999, "Lenovo", 5, 4, "Laptop from 1999.");
         fw.writeFile(bb);
         fw.readFile();
         
-    
+        ComputerComponent cc2 = new ComputerComponent();
+        cc2.getUser();
+        cc2.getBrand();
+        cc2.getReleaseYear();
         
+        fw.writeFile(cc2);
+        fw.readFile();
                 
     }
          
