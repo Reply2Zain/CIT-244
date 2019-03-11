@@ -76,14 +76,14 @@ public class FileWrite {
             fWriter.write("Ram: N/A. ");
         String megahertzCPUSpeedString = Double.toString(cc.megahertzCPUSpeed);
         if (cc.megahertzCPUSpeed != -1){
-            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MgHz. ");
+            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MHz. ");
             
         }
         else
             fWriter.write("CPU-Speed: N/A. ");
         
         
-        fWriter.write("Description:" + cc.description + "");
+        fWriter.write("Description:" + cc.description + " ");
         fWriter.write("Entered by: " + cc.user);
         fWriter.append(System.lineSeparator());
         fWriter.close();
@@ -140,24 +140,7 @@ public class FileWrite {
 
     }
     
-    public static void main(String[] args) throws IOException {
-        FileWrite fw = new FileWrite();
-        ComputerComponent bb = new ComputerComponent();
-        fw.clearFile();
-        bb.getComputerComponent(1999, "Lenovo", 5, 4, "Laptop from 1999.");
-        fw.writeFile(bb);
-        fw.readFile();
-        
-        ComputerComponent cc2 = new ComputerComponent();
-        cc2.getUser();
-        cc2.getBrand();
-        cc2.getReleaseYear();
-        
-        fw.writeFile(cc2);
-        fw.readFile();
-                
-    }
-         
+    
    
     
         

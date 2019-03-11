@@ -19,22 +19,41 @@ public class ComputerComponent extends TimelineObject implements Comparable <Com
 
     }
     
-   public ComputerComponent(int releaseYear, String brand, int ram, double megahertzCPUSpeed , String description) {
+   public ComputerComponent(int releaseYear, String brand, int ram, double megahertzCPUSpeed , String description, String user) {
         this.releaseYear = releaseYear;
         this.brand = brand;
         this.ram = ram;
         this.megahertzCPUSpeed = megahertzCPUSpeed;
         this.description = description;
+        this.user = user;
     }
 
-   void getComputerComponent(int releaseYear, String brand, int ram, double megahertzCPUSpeed , String description){
+   void getComputerComponent(int releaseYear, String brand, int ram, double megahertzCPUSpeed , String description, String user){
         this.releaseYear = releaseYear;
         this.brand = brand;
         this.ram = ram;
         this.megahertzCPUSpeed = megahertzCPUSpeed;
         this.description = description;
+        this.user = user;
 }
-
+   /**
+    * Asks the user to enter Ram
+    * @return ram
+    */
+    int getRam(){
+        System.out.print("Enter the ram: ");
+        ram = input.nextInt();
+        return ram;
+    }
+    /**
+     * Asks the user to enter CPU Speed in MHz
+     * @return 
+     */
+    double getMegahertzCPUSpeed(){
+        System.out.print("Enter the CPU Speed (MHz): ");
+        megahertzCPUSpeed = input.nextDouble();
+        return megahertzCPUSpeed;
+    }
    
    /*   To be used when wanting to add an array
         ComputerComponent[] pcArray = new ComputerComponent [3];
