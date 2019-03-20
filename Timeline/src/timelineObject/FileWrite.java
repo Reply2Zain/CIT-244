@@ -1,6 +1,7 @@
 
 package timelineObject;
 
+import gui.Student;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +12,10 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.PrintWriter;
 import java.io.FileWriter;
+import java.util.List;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -19,7 +23,7 @@ import java.util.Scanner;
  */
 public class FileWrite {
     FileWriter fWriter;
-    String fileName = "input.txt"; //Name of the file
+    public String fileName = "input.txt"; //Name of the file
     
     
     /**
@@ -104,12 +108,18 @@ public class FileWrite {
                } 
            }
        } 
+      
+       
+       
+       
        
        
        catch (FileNotFoundException e) {
            System.out.println("Error: File not found");
        }
      }
+    
+    
     
     /**
      * Reads the file and returns the contents of the text file in the console output.
