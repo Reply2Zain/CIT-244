@@ -1,1 +1,1 @@
-Year:1999. Brand:Lenovo. Ram:520Kb. CPU-Speed:40.0MHz. Description:Laptop from 1999. Entered by: CPU Generated
+Year:1999| Brand:Lenovo| Ram:520Kb| CPU-Speed:40.0MHz| Description:Laptop from 1999. Entered by: CPU Generated

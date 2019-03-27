@@ -20,7 +20,8 @@ import java.util.logging.Logger;
  * @author edarsow
  */
 public class FileModel {
-String fileName;
+
+    String fileName = "input.txt";
 
     public void writeFile(String fileName) {
         PrintWriter fileWriter = null;
@@ -35,7 +36,7 @@ String fileName;
             fileWriter = new PrintWriter(nameFile);
             fileWriter.print("16, Mr. R, FLStudio");
             fileWriter.print("9, Mr. E, BurgerKing");
-            
+
             fileWriter.flush();
             fileWriter.close();
 
@@ -48,41 +49,36 @@ String fileName;
         }
     }
 
-    
-     public List<Student> readFile(String studentFileName) {
+    public List<Student> readFile(String studentFileName) {
         List<Student> studList = new LinkedList<>();
         String fname = "src/files/" + studentFileName;
         Scanner fileScanner = null;
-        
-        
-       try {
-         File file = new File(fileName);
-           try (Scanner scanner = new Scanner(file)) {
-               while (scanner.hasNextLine()) {
-                   System.out.println(scanner.nextLine());
-               } 
-           }
-       } 
-       
-       catch (FileNotFoundException | NullPointerException e) {
-           System.out.println("Error: File not found");
-           
-       }
-       
-       while(fileScanner.hasNext()){
-           Student stud = new Student();
-           StringTokenizer tokenizer 
-                   = new StringTokenizer("," , fileScanner.next());
-            stud.id = Integer.parseInt(tokenizer.nextToken());
-            stud.name = tokenizer.nextToken();
-            stud.course = tokenizer.nextToken();
-            studList.add(stud);
-       }
+
+        try {
+            File file = new File(fname);
+            fileScanner = new Scanner(file);
+            while (fileScanner.hasNextLine()) {
+                System.out.println(fileScanner.nextLine());
+            }
+        } catch (FileNotFoundException | NullPointerException e) {
+            System.out.println("Error: File not found");
+
+        }
+        if(fileScanner != null){
+            while (fileScanner.hasNext()) {
+                Student stud = new Student();
+                StringTokenizer tokenizer
+                        = new StringTokenizer(",", fileScanner.next());
+                stud.id = Integer.parseInt(tokenizer.nextToken());
+                stud.name = tokenizer.nextToken();
+                stud.course = tokenizer.nextToken();
+                studList.add(stud);
+            }
+        }
         System.out.println("Returning student list size: " + studList.size());
         return studList;
-     }
-     
-     
+    }
+
     /*
     public String readFile(String fn) {
         StringBuilder sb = new StringBuilder();
@@ -108,7 +104,5 @@ String fileName;
         return sb.toString();
     }
 
-    */
-    
-    
+     */
 }

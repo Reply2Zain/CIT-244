@@ -64,27 +64,27 @@ public class FileWrite {
         
         if (cc.releaseYear != -1){
             String releaseYearString = Integer.toString(cc.releaseYear);
-            fWriter.write("Year:" + releaseYearString + ". ");
+            fWriter.write("Year:" + releaseYearString + "| ");
         }
         
         else
-            fWriter.write("Year: N/A. ");
+            fWriter.write("Year: N/A| ");
         
-        fWriter.write("Brand:" + cc.brand + ". ");
+        fWriter.write("Brand:" + cc.brand + "| ");
         
         if (cc.ram != -1){
             String ramString = Integer.toString(cc.ram);
-            fWriter.write("Ram:" + ramString + "Kb. ");
+            fWriter.write("Ram:" + ramString + "Kb| ");
         }
         else
             fWriter.write("Ram: N/A. ");
         String megahertzCPUSpeedString = Double.toString(cc.megahertzCPUSpeed);
         if (cc.megahertzCPUSpeed != -1){
-            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MHz. ");
+            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MHz| ");
             
         }
         else
-            fWriter.write("CPU-Speed: N/A. ");
+            fWriter.write("CPU-Speed: N/A| ");
         
         
         fWriter.write("Description:" + cc.description + " ");

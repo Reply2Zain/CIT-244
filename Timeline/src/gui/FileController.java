@@ -15,7 +15,7 @@ public class FileController {
     private FileModel model;
     private FileView view;
     private FileController cont;
-    final static String FILE_NAME = "names.txt";
+    final static String FILE_NAME = "input.txt";
     
     public static void main(String[] args) {
         setupMVC();
