@@ -14,20 +14,23 @@ import java.io.IOException;
 public class Run {
     
     public static void main(String[] args) throws IOException {
-        FileWrite fw = new FileWrite();
-        ComputerComponent bb = new ComputerComponent();
-        fw.clearFile();
-        bb.getComputerComponent(1999, "Lenovo", 520, 40, "Laptop from 1999.", "CPU Generated");
-        fw.writeFile(bb);
-    
-        Input ip = new Input();
-               
-        fw.writeFile(ip.askForAllEntries());
-         fw.readFile();
-        ip.getWelcome();
+        System.out.println("Welcome to the Timeline");
+        Input ip = new Input();  
+        ip.getStarted();
+        
     }
          
 }
+/* Older run material
+fw.clearFile();
+        bb.getComputerComponent(1999, "Lenovo", 520, 40, "Laptop from 1999.", "CPU Generated");
+        fw.writeFile(bb);
+    
+               
+        ip.writeComputerComponent();
+        fw.readFilePlain();
+        fw.getFileValues();
+*/
 
 /*
 FileWrite fw = new FileWrite();
@@ -48,6 +51,6 @@ FileWrite fw = new FileWrite();
                
         fw.writeFile(ip.askForAllEntries());
          fw.readFile();
-        ip.getWelcome();
+        ip.getStarted();
 
 */

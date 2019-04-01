@@ -1,8 +1,7 @@
 
 package timelineObject;
 
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 /**
  *
@@ -12,6 +11,7 @@ public class ComputerComponent extends TimelineObject implements Comparable <Com
     
     double megahertzCPUSpeed = -1;
     int ram = -1;
+    double processingPower = ram * megahertzCPUSpeed;
     
     
     
@@ -69,11 +69,11 @@ public class ComputerComponent extends TimelineObject implements Comparable <Com
    throw new NullPointerException();
        
    }
-        int x = 0;
-    if (this.ram > o.ram){
+    int x = 0;
+    if (this.processingPower > o.processingPower){
     x=1;
 }
-    else if(this.ram < o.ram){
+    else if(this.processingPower < o.processingPower){
     x=-1;
             }
         return x;
@@ -110,5 +110,7 @@ public class ComputerComponent extends TimelineObject implements Comparable <Com
         }
         return true;
     }
+    
+    ComputerComponent[] pcArray = new ComputerComponent [300];
 
 }

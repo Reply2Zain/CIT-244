@@ -64,31 +64,31 @@ public class FileWrite {
         
         if (cc.releaseYear != -1){
             String releaseYearString = Integer.toString(cc.releaseYear);
-            fWriter.write("Year:" + releaseYearString + "| ");
+            fWriter.write("Year:'" + releaseYearString + "' ");
         }
         
         else
-            fWriter.write("Year: N/A| ");
+            fWriter.write("Year: 'N/A' ");
         
-        fWriter.write("Brand:" + cc.brand + "| ");
+        fWriter.write("Brand:'" + cc.brand + "' ");
         
         if (cc.ram != -1){
             String ramString = Integer.toString(cc.ram);
-            fWriter.write("Ram:" + ramString + "Kb| ");
+            fWriter.write("Ram:'" + ramString + "'Kb ");
         }
         else
-            fWriter.write("Ram: N/A. ");
+            fWriter.write("Ram: 'N/A.' ");
         String megahertzCPUSpeedString = Double.toString(cc.megahertzCPUSpeed);
         if (cc.megahertzCPUSpeed != -1){
-            fWriter.write("CPU-Speed:" + megahertzCPUSpeedString + "MHz| ");
+            fWriter.write("CPU-Speed:'" + megahertzCPUSpeedString + "'"+ "MHz ");
             
         }
         else
-            fWriter.write("CPU-Speed: N/A| ");
+            fWriter.write("CPU-Speed: 'N/A' ");
         
         
-        fWriter.write("Description:" + cc.description + " ");
-        fWriter.write("Entered by: " + cc.user);
+        fWriter.write("Description:" + "'" + cc.description + "' ");
+        fWriter.write("Entered by: " + "'" + cc.user + "' ");
         fWriter.append(System.lineSeparator());
         fWriter.close();
      }
@@ -99,7 +99,7 @@ public class FileWrite {
       * "String fileName" that is initialized at the beginning of the FileWrite class.
       * @param fileName 
       */
-    public void readFile(String fileName) {
+    public void readSpecificFile(String fileName) {
        try {
          File file = new File(fileName);
            try (Scanner scanner = new Scanner(file)) {
@@ -125,8 +125,8 @@ public class FileWrite {
      * Reads the file and returns the contents of the text file in the console output.
      * Uses the file name that is initialized at the beginning of the FileWrite class. 
      */
-    public void readFile() {
-       try {
+    public void readFilePlain() {
+        try {
          File file = new File(fileName);
            try (Scanner scanner = new Scanner(file)) {
                while (scanner.hasNextLine()) {
@@ -136,10 +136,25 @@ public class FileWrite {
        } 
        
        
-       catch (FileNotFoundException e) {
+        catch (FileNotFoundException e) {
            System.out.println("Error: File not found");
        }
      }
+public void getFileValues() throws FileNotFoundException {
+    File file = new File(fileName);
+    Scanner scanner = new Scanner(file);
+    while (scanner.hasNext()){
+        StringTokenizer st = new StringTokenizer(scanner.next(), "'");
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken());
+        }
+    }
+}
+
+   
+
+          
+    
     /**
      * Deletes the old file and creates a new one with the same name.
      * @throws IOException 

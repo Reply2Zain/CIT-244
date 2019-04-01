@@ -1,1 +1,5 @@
-Year:1999| Brand:Lenovo| Ram:520Kb| CPU-Speed:40.0MHz| Description:Laptop from 1999. Entered by: CPU Generated
+Year:'1999' Brand:'Lenovo' Ram:'520'Kb CPU-Speed:'40.0'MHz Description:'Laptop from 1999.' Entered by: 'CPU Generated' 
+Year:'12' Brand:'App' Ram:'12'Kb CPU-Speed:'12.0'MHz Description:'N/A' Entered by: 'Zain' 
+Year:'19000' Brand:'Apple' Ram:'120'Kb CPU-Speed:'102.0'MHz Description:'N/A' Entered by: 'Zain' 
+Year:'10231' Brand:'Apple' Ram:'12'Kb CPU-Speed:'1230.0'MHz Description:'N/A' Entered by: 'Zain' 
+Year:'42134132' Brand:'aop' Ram:'23'Kb CPU-Speed:'734.0'MHz Description:'N/A' Entered by: 'Zain' 
