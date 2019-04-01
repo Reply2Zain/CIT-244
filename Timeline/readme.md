@@ -1,9 +1,9 @@
-# Mode-view-controller simulation
+# Text based Timeline Program
+The program can be run via netbeans. When run, text is displayed in the output console with options. 
 
-Design patterns are approaches to software development that are optimized for individual use cases. 
+## Output
 
-## HEading 2
-
-1. number 1
-2. number 2
-3. number 3
+1. Add a Component to the Timeline
+2. Read the Timeline
+3. Clear Timeline 
+4. Exit program
