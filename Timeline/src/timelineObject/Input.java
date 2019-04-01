@@ -30,9 +30,9 @@ public class Input {
         return response;
     }
     
-    void getStarted(){
+    void getStarted() throws IOException{
         while (!"3".equals(response)){
-        System.out.println("Enter: 1- Add a computer component || 2- Read the Timeline || 3- Exit");
+        System.out.println("Enter: 1- Add a computer component || 2- Read Timeline || 3- Clear Timeline || 4- Exit");
         scannerGetResponse();
         if ("1".equals(response)){
             writeComputerComponent();
@@ -43,6 +43,9 @@ public class Input {
             fw.readFilePlain();
         }
         else if ("3".equals(response)){
+            fw.clearFile();
+        }
+        else if ("4".equals(response)){
             System.out.println("Thank you for using the Timeline Program.");
         }
         else{
