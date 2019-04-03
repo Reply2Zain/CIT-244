@@ -39,7 +39,7 @@ public class Algos {
         }// close if
     }// close mergeSort
         
-    public static void merge(int [] list1, int[] list2, int[] temp){
+    public static int [] merge(int [] list1, int[] list2, int[] temp){
         int cursor1 = 0; 
         int cursor2 = 0;
         int cursor3 = 0;
@@ -57,7 +57,7 @@ public class Algos {
         while (cursor2 < list2.length)
             temp[cursor3++] = list2[cursor2++];
         
-        
+        return temp;
         
         
         
