@@ -18,6 +18,16 @@ public class SortClient {
     static int listSize;
     static int bound;
     
+    /**
+     * Returns an array of randomly generated integers. This method takes in two
+     * integers, the first being the array size and the second being the upper
+     * bound of the random numbers being generated. 
+     * 
+     * @param listSize the size of the array
+     * @param bound the upper-limit of the randomly generated integers
+     * @return randList the randomly generated list
+     */
+    
     public static int[] getRand(int listSize, int bound){
         Random rand = new Random();
         randList = new int[listSize];
@@ -34,6 +44,15 @@ public class SortClient {
         return randList;
 }// close method
     
+    /**
+     * Returns an array of randomly generated integers. This method takes in one
+     * parameter, which is the size of the array. The upper bound of the
+     * integers being generated is the max value that integers can hold 
+     * (~2 billion).
+     * 
+     * @param listSize the size of the array
+     * @return randList the randomly generated list
+     */
     public static int[] getRand(int listSize){
         Random rand = new Random();
         randList = new int[listSize];
