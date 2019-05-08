@@ -2,7 +2,7 @@
 # ATM - Automated Teller Machine
 The program can be run via netbeans. The ATM Client should have the code but the some mode options are executable without assigning values to the client. In this case, the program would ask the user to enter the values with the scanner class or assume ordinary default values and complete the operation. Errors and the best plan of action to deal with the error is also built into the program and occur when there are unexpected or damaging events. 
 
-
+![ATM Machine](ATMMachine.png)
 
 ## Enum modes
 Enums are the basis of this program
