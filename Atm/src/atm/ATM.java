@@ -18,7 +18,8 @@ public class ATM {
     private String scannerWorking = "yes";
     private String atmScreenWorking = "yes";
     private String transferRecipient;
-    private int transferBalance = 0;
+    private int transferAmount = 0;
+    private int depositAmount = 0;
     
     
    Scanner sc = new Scanner (System.in);
@@ -84,12 +85,12 @@ public class ATM {
         return atmScreenWorking;
     }
     
-    public String getInputString(){
+    public String setInputString(){
         String input = sc.next();
         return input;
     }
     
-    public int getInputInt(){
+    public int setInputInt(){
         int input = sc.nextInt();
         return input;
     }
@@ -97,19 +98,40 @@ public class ATM {
     public String setTransferRecipientScan(){
         System.out.println("Who would you like to transfer to: ");
         String name = sc.next();
-        return name;
+        this.transferRecipient = name;
+        return transferRecipient;
     }
+     public String setTransferRecipient(String t){
+         this.transferRecipient = t;
+         return t;
+     }
      public String getTransferRecipient(){
          return transferRecipient;
      }
     
     public int setTransferAmount(int t){
-        transferBalance = t;
-        return transferBalance;
+        transferAmount = t;
+        return transferAmount;
+    }
+    
+    public int setTransferAmountScan(){
+        System.out.println("Current Balance: " + balance);
+        System.out.println("How much would you like to transfer: ");
+        transferAmount = sc.nextInt();
+        return transferAmount;
     }
     
     public int getTransferAmount(){
-        return transferBalance;
+        return transferAmount;
+    }
+    
+    public int setDepositAmount(int d){
+        depositAmount = d;
+        return depositAmount;
+    }
+    
+    public int getDepositAmount(){
+        return depositAmount;
     }
     
     public String getScannerWorking(){
@@ -134,28 +156,31 @@ public class ATM {
                     case WELCOME:
                             System.out.println(Mode.WELCOME.getMachineView());
 
-                            System.out.print("Balance: ");
+                            System.out.print("Current Balance: ");
                         return balance;
+                    
                     case DEPOSIT:
                         if(scannerWorking.equalsIgnoreCase("yes")){
                         System.out.println(Mode.DEPOSIT.getMachineView());
+                        System.out.println("Deposited: " + depositAmount);
                         }
                         else{
                             throw new AtmException("Msg: The money scanner is not working. Please try again later.", ExceptionSeverity.MODERATE);
                         }
-                        System.out.println("Balance:");
+                        System.out.println("Current Balance:");
                         return balance;
+                    
                     
                     case WITHDRAWAL:
                         if(balance <= 0){
-                            System.out.println("Balance: " + balance);
                         throw new AtmException("You can't withdraw!", ExceptionSeverity.LOW);
                         }
                         else{
                             System.out.println(Mode.WITHDRAWAL.getMachineView());
                         }
-
-                        return 2;
+                        System.out.print("Current Balance:");
+                        return balance;
+                    
                     case TRANSFER:
                         if(transferRecipient == null){
                             throw new AtmException("No transfer recipient!", ExceptionSeverity.LOW);
@@ -163,17 +188,35 @@ public class ATM {
                         if(balance <= 0){
                             throw new AtmException("You have no money to give!'", ExceptionSeverity.LOW);
                         }
-                        else{
-                        System.out.println(Mode.TRANSFER.getMachineView());
+                        if (transferAmount <= 0){
+                            setTransferAmountScan();
+                            while (transferAmount > balance){
+                                System.out.println("You do not have enough in your bank");
+                                setTransferAmountScan();
+                            }
+                            System.out.println("You are transferring $" + transferAmount);
+                            System.out.println(Mode.TRANSFER.getMachineView());
+                            balance = balance - transferAmount;
                         }
-                        return 3;
-                    case BALANCE:
-
+                        else{
+                            System.out.println("You are transferring $" + transferAmount);
+                            System.out.println(Mode.TRANSFER.getMachineView());
+                            balance = balance - transferAmount;
+                        }
+                        System.out.print("Current Balance:");
                         return balance;
+                    case BALANCE:
+                        if (balance >=0){
+                            balance = balance + depositAmount;
+                            return balance;
+                        }
+                        else{
+                            throw new AtmException("Balance cannot go below zero. Please see an associate.'", ExceptionSeverity.SOFTWARE);
+                        }
 
                     default:
-                        System.out.println("Default case");
-                        return 100;
+                        System.out.print("Balance:");
+                        return balance;
                 
                 }
             }

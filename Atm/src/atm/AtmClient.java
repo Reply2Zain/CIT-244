@@ -19,14 +19,17 @@ public class AtmClient {
         
         ATM atm = new ATM();
             atm.setAccountMade("yes");
-            atm.setBalance(10);
-            atm.setScannerWorking("yes");
+            atm.setBalance(50);
+            atm.setScannerWorking("no");
+            atm.setMode(Mode.DEPOSIT);
+        
+            
+            
         
         try{
             
             System.out.println(atm.startATM());
             
-            atm.setMode(Mode.WITHDRAWAL);
            
             
             

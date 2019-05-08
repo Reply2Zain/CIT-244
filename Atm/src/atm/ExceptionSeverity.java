@@ -12,7 +12,7 @@ package atm;
 public enum ExceptionSeverity {
     USER_BASED,
     SUPERFICIAL,
-    SCANNER,
+    SOFTWARE,
     LOW,
     MODERATE,
     SEVERE;
